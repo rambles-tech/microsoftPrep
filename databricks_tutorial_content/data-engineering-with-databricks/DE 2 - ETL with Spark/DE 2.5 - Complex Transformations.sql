@@ -98,7 +98,7 @@ SELECT * FROM events_strings WHERE value:event_name = "finalize" ORDER BY key LI
 -- MAGIC display(events_stringsDF
 -- MAGIC     .where("value:event_name = 'finalize'")
 -- MAGIC     .orderBy("key")
--- MAGIC     .limit(1)
+-- MAGIC     .limit(5)
 -- MAGIC )
 
 -- COMMAND ----------

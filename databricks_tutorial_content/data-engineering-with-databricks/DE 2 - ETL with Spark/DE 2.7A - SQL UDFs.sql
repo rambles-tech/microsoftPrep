@@ -53,7 +53,8 @@ CREATE OR REPLACE FUNCTION sale_announcement(item_name STRING, item_price INT)
 RETURNS STRING
 RETURN concat("The ", item_name, " is on sale for $", round(item_price * 0.8, 0));
 
-SELECT *, sale_announcement(name, price) AS message FROM item_lookup
+SELECT *, sale_announcement(name, price) AS message 
+FROM item_lookup
 
 -- COMMAND ----------
 

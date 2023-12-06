@@ -68,6 +68,11 @@ FROM users_dirty
 
 -- COMMAND ----------
 
+SELECT count(*), count(distinct(user_id)), count(distinct(user_first_touch_timestamp)), count(distinct(email)), count(updated)
+FROM users_dirty
+
+-- COMMAND ----------
+
 -- DBTITLE 0,--i18n-c414c24e-3b72-474b-810d-c3df32032c26
 -- MAGIC %md
 -- MAGIC
@@ -214,7 +219,7 @@ SELECT max(row_count) <= 1 no_duplicate_ids FROM (
 
 -- COMMAND ----------
 
-SELECT max(user_id_count) <= 1 at_most_one_id FROM (
+SELECT MAX(user_id_count) = 1 at_most_one_id FROM (
   SELECT email, count(user_id) AS user_id_count
   FROM deduped_users
   WHERE email IS NOT NULL
